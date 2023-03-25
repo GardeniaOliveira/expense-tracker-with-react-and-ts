@@ -4,7 +4,8 @@ import { Item } from "./types/Item";
 import { Category } from "./types/Category";
 import { categories } from "./data/categories";
 import { items } from "./data/items";
-import * as Fun from "./helpers/dateFilter";
+import { TableArea } from "./components/TableArea.ts";
+import * as Func from "./helpers/dateFilter";
 
 const App = () => {
   // general list of all months
@@ -12,11 +13,11 @@ const App = () => {
 
   // list filtered for each months
   const [filteredList, setFilteredList] = useState<Item[]>([]);
-  const [currentMonth, setCurrentMont] = useState(Fun.getCurrentMonth());
+  const [currentMonth, setCurrentMont] = useState(Func.getCurrentMonth());
 
-  //monitors when changes the month and execute the function
+  //monitors when changes the month and execute the Function
   useEffect(() => {
-    setFilteredList(Fun.filterListByMonth(list, currentMonth));
+    setFilteredList(Func.filterListByMonth(list, currentMonth));
   }, [list, currentMonth]);
   return (
     <C.Container>
@@ -29,6 +30,7 @@ const App = () => {
         {/* insertion area*/}
 
         {/* List items */}
+        <TableArea />
       </C.Body>
     </C.Container>
   );
