@@ -1,15 +1,20 @@
 import { useState, useEffect } from "react";
+
 import * as C from "./App.styles";
+import * as Func from "./helpers/dateFilter";
+
 import { Item } from "./types/Item";
+import { items } from "./data/items";
+
 import { Category } from "./types/Category";
 import { categories } from "./data/categories";
-import { items } from "./data/items";
+
 import { TableArea } from "./components/TableArea.ts";
-import * as Func from "./helpers/dateFilter";
 
 const App = () => {
   // general list of all months
   const [list, setList] = useState(items);
+  console.log(list);
 
   // list filtered for each months
   const [filteredList, setFilteredList] = useState<Item[]>([]);
@@ -30,7 +35,7 @@ const App = () => {
         {/* insertion area*/}
 
         {/* List items */}
-        <TableArea />
+        <TableArea list={filteredList} />
       </C.Body>
     </C.Container>
   );

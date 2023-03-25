@@ -2,7 +2,7 @@ import { Item } from "../types/Item";
 
 export const getCurrentMonth = () => {
   let now = new Date();
-  return `${now.getFullYear()} ${now.getMonth() + 1}`;
+  return `${now.getFullYear()} - ${now.getMonth() + 1}`;
 };
 
 //filter the old list and create a new list with new dates
@@ -25,3 +25,4 @@ export const filterListByMonth = (list: Item[], date: string): Item[] => {
   // return a list with items only the same month and year
   return newList;
 };
+console.log(filterListByMonth);
