@@ -9,7 +9,8 @@ import { items } from "./data/items";
 import { Category } from "./types/Category";
 import { categories } from "./data/categories";
 
-import { TableArea } from "./components/TableArea.ts";
+import { TableArea } from "./components/TableArea";
+import { TableItem } from "./components/TableItem";
 
 const App = () => {
   // general list of all months
