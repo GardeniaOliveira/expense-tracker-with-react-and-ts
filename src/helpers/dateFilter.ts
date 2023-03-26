@@ -25,4 +25,19 @@ export const filterListByMonth = (list: Item[], date: string): Item[] => {
   // return a list with items only the same month and year
   return newList;
 };
-console.log(filterListByMonth);
+
+export const formateDate = (date: Date): string => {
+  let year = date.getFullYear();
+  let month = date.getMonth() + 1;
+  let day = date.getDate();
+
+  return `${addZeroToDate(day)} / ${addZeroToDate(month)} / ${year}`;
+};
+
+const addZeroToDate = (n: number): string => {
+  if (n < 10) {
+    return `0${n}`;
+  } else {
+    return `${n}`;
+  }
+};
