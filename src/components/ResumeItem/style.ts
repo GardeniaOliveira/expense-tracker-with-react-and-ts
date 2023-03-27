@@ -8,9 +8,11 @@ export const Title = styled.div`
   text-align: center;
   font-weight: bold;
   margin-bottom: 5px;
+  color: #cbd5e1;
 `;
 
-export const Info = styled.div`
+export const Info = styled.div<{ color?: string }>`
   text-align: center;
   font-weight: bold;
+  color: ${(props) => props.color ?? "white"};
 `;
