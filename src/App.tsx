@@ -22,10 +22,31 @@ const App = () => {
   const [filteredList, setFilteredList] = useState<Item[]>([]);
   const [currentMonth, setCurrentMont] = useState(Func.getCurrentMonth());
 
+  // calculate the total of incomes and expenses
+  const [income, setIncome] = useState(0);
+  const [expense, setExpense] = useState(0);
+
   //monitors when changes the month and execute the Function
   useEffect(() => {
     setFilteredList(Func.filterListByMonth(list, currentMonth));
   }, [list, currentMonth]);
+
+  //if the list changes the value of expense and income should change too;
+  useEffect(() => {
+    let expense = 0;
+    let income = 0;
+
+    for (let i in filteredList) {
+      if (categories[filteredList[i].category].expense) {
+        expense += filteredList[i].value;
+      } else {
+        income += filteredList[i].value;
+      }
+    }
+
+    setIncome(income);
+    setExpense(expense);
+  }, [filteredList]);
 
   const handleMonthChange = (newMonth: string) => {
     setCurrentMont(newMonth);
@@ -41,6 +62,8 @@ const App = () => {
         <InfoArea
           currentMonth={currentMonth}
           onMonthChange={handleMonthChange}
+          income={income}
+          expense={expense}
         />
 
         {/* insertion area*/}
