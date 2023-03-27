@@ -41,3 +41,23 @@ const addZeroToDate = (n: number): string => {
     return `${n}`;
   }
 };
+
+export const formateCurrentMonth = (currentMonth: string): string => {
+  let [year, month] = currentMonth.split("-");
+  let months = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
+
+  return `${months[parseInt(month) - 1]}/${year}`;
+};

@@ -11,6 +11,7 @@ import { categories } from "./data/categories";
 
 import { TableArea } from "./components/TableArea";
 import { TableItem } from "./components/TableItem";
+import { InfoArea } from "./components/InfoArea";
 
 const App = () => {
   // general list of all months
@@ -30,8 +31,10 @@ const App = () => {
       <C.Header>
         <C.HeaderText>Expense Tracker</C.HeaderText>
       </C.Header>
+
       <C.Body>
         {/* Info area*/}
+        <InfoArea currentMonth={currentMonth} />
 
         {/* insertion area*/}
 
