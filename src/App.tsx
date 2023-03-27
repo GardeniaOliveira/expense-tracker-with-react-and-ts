@@ -26,6 +26,10 @@ const App = () => {
   useEffect(() => {
     setFilteredList(Func.filterListByMonth(list, currentMonth));
   }, [list, currentMonth]);
+
+  const handleMonthChange = (newMonth: string) => {
+    setCurrentMont(newMonth);
+  };
   return (
     <C.Container>
       <C.Header>
@@ -34,7 +38,10 @@ const App = () => {
 
       <C.Body>
         {/* Info area*/}
-        <InfoArea currentMonth={currentMonth} />
+        <InfoArea
+          currentMonth={currentMonth}
+          onMonthChange={handleMonthChange}
+        />
 
         {/* insertion area*/}
 
