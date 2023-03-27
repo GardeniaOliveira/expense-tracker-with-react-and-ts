@@ -10,13 +10,12 @@ import { Category } from "./types/Category";
 import { categories } from "./data/categories";
 
 import { TableArea } from "./components/TableArea";
-import { TableItem } from "./components/TableItem";
 import { InfoArea } from "./components/InfoArea";
+import { InputArea } from "./components/InputArea";
 
 const App = () => {
   // general list of all months
   const [list, setList] = useState(items);
-  console.log(list);
 
   // list filtered for each months
   const [filteredList, setFilteredList] = useState<Item[]>([]);
@@ -51,6 +50,13 @@ const App = () => {
   const handleMonthChange = (newMonth: string) => {
     setCurrentMont(newMonth);
   };
+
+  const handleAddItem = (item: Item) => {
+    let newList = [...list];
+    newList.push(item);
+    setList(newList);
+  };
+
   return (
     <C.Container>
       <C.Header>
@@ -67,6 +73,7 @@ const App = () => {
         />
 
         {/* insertion area*/}
+        <InputArea onAdd={handleAddItem} />
 
         {/* List items */}
         <TableArea list={filteredList} />
